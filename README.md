@@ -48,6 +48,7 @@ The original transactional database `gravity_books` contains:
 - `order_status`  
 - `publisher`  
 - `shipping_method`  
+
 ![image_alt](Pictures/ERD.png)
 
 These tables follow a normalized OLTP design and were used as raw input for the warehouse model.
@@ -63,6 +64,8 @@ The dimensional warehouse `gravity_books_SnowFlake_DWH` contains:
 - `DimDate`  
 - `Shipping_Dim`  
 - `fact_Dim`  
+
+![image_alt](Pictures/DWH schema.png)
 
 The schema uses surrogate keys, and dimensions are modeled with historical tracking fields for SCD (e.g., `start_date`, `end_date`, `is_current`).
 
