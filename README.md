@@ -49,6 +49,8 @@ The original transactional database `gravity_books` contains:
 - `publisher`  
 - `shipping_method`  
 
+![image_alt](Pictures/ERD.png)
+
 These tables follow a normalized OLTP design and were used as raw input for the warehouse model.
 
 ## Data Warehouse Tables
@@ -62,6 +64,8 @@ The dimensional warehouse `gravity_books_SnowFlake_DWH` contains:
 - `DimDate`  
 - `Shipping_Dim`  
 - `fact_Dim`  
+
+![image_alt](Pictures/DWH schema.png)
 
 The schema uses surrogate keys, and dimensions are modeled with historical tracking fields for SCD (e.g., `start_date`, `end_date`, `is_current`).
 
@@ -87,15 +91,37 @@ Key facts:
 - SCD Type 2 handled with `start_date`, `end_date`, `is_current`  
 - Book and Author linked through a bridge (`Book_Author_Dim`)  
 
-![DWH Schema](./ERD/dwh_model.png)
+![image_alt](Pictures/DWH schema.png)
 
 ### Integrity Constraints
 
 - All foreign key relationships are explicitly enforced  
 - Scripts for data integrity checks are included  
 
-Example:
-```sql
-SELECT *
-FROM fact_Dim
-WHERE book_sk NOT IN (SELECT book_sk FROM Book_Dim);
+### SSIS ETL Design
+
+Each SSIS package handles the data flow from the OLTP source into the DWH with surrogate keys, lookups, and optional SCD handling.
+
+#### Fact Package: `Fact_order.dtsx`
+
+- **Control Flow**: A single `Execute SQL Task` runs a setup query followed by a `Data Flow Task`.
+
+![Fact Control Flow](Pictures/Fact 1.png)
+
+
+- **Data Flow**:
+  - Source: `OLE DB Source` from `cust_order` and `order_line`
+  - Lookup: Matches dimension surrogate keys (Book, Customer, Date, Shipping)
+  - Destination: `fact_Dim`
+
+![Fact Control Flow](Pictures/Fact 2.png)
+
+#### Authors Package: `Authors.dtsx`
+
+- Source: `OLE DB Source` from OLTP Author data  
+- SCD Task: Detects and processes historical attribute changes  
+- Derived Columns and Union All used to finalize the versioned row structure  
+- Destination: `Authors_Dim`
+
+![Author SCD Flow](Pictures/Author.png)
+
