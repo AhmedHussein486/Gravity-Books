@@ -1,0 +1,89 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>MultidimensionalProject1</Database>
+    <Server>.\PI</Server>
+    <ConnectionString>Data Source=.\PI;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>8fOE7N6W5PdOmZbJPw1v+hZViBU=23-01-2025 5:29:05 PM23-01-2025 5:29:05 PM</TimeStamp>
+        <ID>
+          <String>Gravity Books Snow Flake DWH</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>sY0RlwPMVHqxmiyVy5hNiw4ziyk=23-01-2025 5:29:35 PM23-01-2025 5:29:35 PM</TimeStamp>
+        <ID>
+          <String>Gravity Books Snow Flake DWH</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>GyfjdG+BB4Zg0IIUYe4EJoOpJnA=23-01-2025 6:09:34 PM23-01-2025 5:29:51 PM</TimeStamp>
+        <ID>
+          <String>Dim Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>4TubBZX994dL9pW833YZu/SzQrM=23-01-2025 6:10:05 PM23-01-2025 5:29:51 PM</TimeStamp>
+        <ID>
+          <String>Book Dim</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>CQ/Pwze+DBFK9buFPwRq4BuU3eo=23-01-2025 6:10:22 PM23-01-2025 5:29:51 PM</TimeStamp>
+        <ID>
+          <String>Cust Dim</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ftk1vr+nstu5XO+TfImws06OzwU=23-01-2025 6:10:33 PM23-01-2025 5:29:51 PM</TimeStamp>
+        <ID>
+          <String>Shipping Dim</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>EBcUCzk7Usgfg46DNTgHLkExeZs=23-01-2025 5:29:51 PM23-01-2025 5:29:51 PM</TimeStamp>
+        <ID>
+          <String>Fact Dim</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>/zqov3fg87pPmhoKcPRxSL2At+0=23-01-2025 6:10:33 PM23-01-2025 5:29:51 PMW9h+LRZsHvDSmpdMb9qC0rUdBlE=23-01-2025 5:29:51 PM23-01-2025 5:29:51 PM</TimeStamp>
+        <ID>
+          <String>Gravity Books Snow Flake DWH</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>1ppaXjT4eDEAXvJSwRPfbJGFbmk=23-01-2025 5:05:14 PM23-01-2025 5:05:14 PM</TimeStamp>
+      <ID>
+        <String>MultidimensionalProject1</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>false</ProcessingComplete>
+  <LastDeployed>2025-01-23T16:12:23.61Z</LastDeployed>
+</DeploymentSnapshot>
