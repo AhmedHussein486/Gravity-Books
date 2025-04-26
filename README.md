@@ -58,3 +58,44 @@ The dimensional warehouse `gravity_books_SnowFlake_DWH` contains:
 - `Authors_Dim`  
 - `Book_Author_Dim`  
 - `Book_Dim`  
+- `Cust_Dim`  
+- `DimDate`  
+- `Shipping_Dim`  
+- `fact_Dim`  
+
+The schema uses surrogate keys, and dimensions are modeled with historical tracking fields for SCD (e.g., `start_date`, `end_date`, `is_current`).
+
+## Data Warehouse Design
+
+### Approach
+
+**Snowflake Schema**
+
+### Why Snowflake Schema
+
+- Reduces redundancy  
+- Enforces data consistency  
+- Suitable for historical tracking  
+- Well-aligned with business reporting needs  
+
+### Data Warehouse Model
+
+The warehouse follows a normalized snowflake schema with surrogate keys and SCD fields.
+
+Key facts:
+- All dimensions link to the `fact_Dim` via surrogate keys  
+- SCD Type 2 handled with `start_date`, `end_date`, `is_current`  
+- Book and Author linked through a bridge (`Book_Author_Dim`)  
+
+![DWH Schema](./ERD/dwh_model.png)
+
+### Integrity Constraints
+
+- All foreign key relationships are explicitly enforced  
+- Scripts for data integrity checks are included  
+
+Example:
+```sql
+SELECT *
+FROM fact_Dim
+WHERE book_sk NOT IN (SELECT book_sk FROM Book_Dim);
