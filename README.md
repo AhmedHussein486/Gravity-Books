@@ -65,7 +65,7 @@ The dimensional warehouse `gravity_books_SnowFlake_DWH` contains:
 - `Shipping_Dim`  
 - `fact_Dim`  
 
-![image_alt](Pictures/DWH schema.png)
+![image_alt](Pictures/DWH_schema.png)
 
 The schema uses surrogate keys, and dimensions are modeled with historical tracking fields for SCD (e.g., `start_date`, `end_date`, `is_current`).
 
@@ -91,7 +91,6 @@ Key facts:
 - SCD Type 2 handled with `start_date`, `end_date`, `is_current`  
 - Book and Author linked through a bridge (`Book_Author_Dim`)  
 
-![image_alt](Pictures/DWH schema.png)
 
 ### Integrity Constraints
 
@@ -106,7 +105,7 @@ Each SSIS package handles the data flow from the OLTP source into the DWH with s
 
 - **Control Flow**: A single `Execute SQL Task` runs a setup query followed by a `Data Flow Task`.
 
-![Fact Control Flow](Pictures/Fact 1.png)
+![Fact Control Flow](Pictures/Fact_1.png)
 
 
 - **Data Flow**:
@@ -114,7 +113,7 @@ Each SSIS package handles the data flow from the OLTP source into the DWH with s
   - Lookup: Matches dimension surrogate keys (Book, Customer, Date, Shipping)
   - Destination: `fact_Dim`
 
-![Fact Control Flow](Pictures/Fact 2.png)
+![Fact Control Flow](Pictures/Fact_2.png)
 
 #### Authors Package: `Authors.dtsx`
 
