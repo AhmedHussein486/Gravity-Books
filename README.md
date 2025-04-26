@@ -9,10 +9,10 @@ It includes data modeling, OLAP cube design, and is ready for BI reporting.
 ## Features
 
 - Designed and built a Snowflake Schema data warehouse  
-- Created tables, keys, and constraints  
+- Created tables, surrogate keys, and integrity constraints  
 - Developed a Date Dimension table  
 - Built a Tabular OLAP Cube using SSAS  
-- Prepared the foundation for ETL with SSIS  
+- Prepared the foundation for ETL using SSIS  
 - Ready for Power BI or Excel analysis  
 
 ## Technologies
@@ -22,44 +22,39 @@ It includes data modeling, OLAP cube design, and is ready for BI reporting.
 - SQL Server Integration Services (SSIS)  
 - SQL Server Analysis Services (SSAS Tabular)  
 
-## Data Warehouse Design
+## Data Sources
 
-### Approach
+- SQL script files from the Gravity Bookstore dataset  
+- Source:  
+  [`sample_db_gravity`](https://github.com/bbrumm/databasestar/tree/main/sample_databases/sample_db_gravity/gravity_sqlserver)  
+- Used to populate the transactional database `gravity_books`
 
-**Snowflake Schema**
+## OLTP Tables
 
-### Why Snowflake Schema
+The original transactional database `gravity_books` contains:
 
-- Reduces data redundancy  
-- Improves data integrity  
-- Saves storage space  
-- Suits complex analytical queries  
+- `address`  
+- `address_status`  
+- `author`  
+- `book`  
+- `book_author`  
+- `book_language`  
+- `country`  
+- `cust_order`  
+- `customer`  
+- `customer_address`  
+- `order_history`  
+- `order_line`  
+- `order_status`  
+- `publisher`  
+- `shipping_method`  
 
-### Main Tables
+These tables follow a normalized OLTP design and were used as raw input for the warehouse model.
 
-- **Fact Table**  
-  - Sales Fact (combines `cust_order` and `order_line`)  
+## Data Warehouse Tables
 
-- **Dimension Tables**  
-  - Book (linked to Publisher and Language)  
-  - Author  
-  - Customer (linked to Address → Country, Address Status)  
-  - Shipping Method  
-  - Order Status  
-  - Date  
+The dimensional warehouse `gravity_books_SnowFlake_DWH` contains:
 
-### ERD
-
-- Available in the `/ERD` directory  
-- Built based on normalized relationships  
-
-### Integrity Constraints
-
-- Enforced through Foreign Key relationships  
-- SQL scripts created for consistency checks  
-
-Example check:
-```sql
-SELECT *
-FROM fact_sales
-WHERE customer_id NOT IN (SELECT customer_id FROM dim_customer);
+- `Authors_Dim`  
+- `Book_Author_Dim`  
+- `Book_Dim`  
