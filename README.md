@@ -91,7 +91,7 @@ Key facts:
 - SCD Type 2 handled with `start_date`, `end_date`, `is_current`  
 - Book and Author linked through a bridge (`Book_Author_Dim`)  
 
-![DWH Schema](Pictures/DWH schema.png)
+![image_alt](Pictures/DWH schema.png)
 
 ### Integrity Constraints
 
