@@ -124,3 +124,18 @@ Each SSIS package handles the data flow from the OLTP source into the DWH with s
 
 ![Author SCD Flow](Pictures/Author.png)
 
+### SSAS Tabular Cube Design
+
+The SSAS tabular model was built to support slice-and-dice analytics using the fully populated warehouse schema.
+
+- Measures created on `fact_Dim`
+- Dimensions:
+  - `Book_Dim`
+  - `Cust_Dim`
+  - `DimDate`
+  - `Shipping_Dim`
+- All dimensions link using surrogate keys
+
+![SSAS Cube Structure](Pictures/SSAS.png)
+
+
