@@ -48,6 +48,7 @@ The original transactional database `gravity_books` contains:
 - `order_status`  
 - `publisher`  
 - `shipping_method`  
+![image_alt](Pictures/ERD.png)
 
 These tables follow a normalized OLTP design and were used as raw input for the warehouse model.
 
