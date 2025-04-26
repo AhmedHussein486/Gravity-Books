@@ -3,19 +3,24 @@
 ## Project Overview
 
 This project models and develops the **Gravity Bookstore** data warehouse.  
-It transforms a transactional database into a normalized dimensional warehouse using a Snowflake Schema.
+It transforms a transactional database into a normalized dimensional warehouse using a Snowflake Schema.  
+It includes data modeling, OLAP cube design, and is ready for BI reporting.
 
 ## Features
 
 - Designed and built a Snowflake Schema data warehouse  
 - Created tables, keys, and constraints  
 - Developed a Date Dimension table  
-- Prepared the foundation for ETL, OLAP, and BI solutions  
+- Built a Tabular OLAP Cube using SSAS  
+- Prepared the foundation for ETL with SSIS  
+- Ready for Power BI or Excel analysis  
 
 ## Technologies
 
 - Microsoft SQL Server  
 - SQL Server Management Studio (SSMS)  
+- SQL Server Integration Services (SSIS)  
+- SQL Server Analysis Services (SSAS Tabular)  
 
 ## Data Warehouse Design
 
